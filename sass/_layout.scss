@@ -10,7 +10,7 @@ body {
     font-size: 12px;
     // background-color: rgb(179, 179, 204);
     background-color: #fff;
-
+    overflow-x: hidden;
 }
 
 
@@ -18,7 +18,8 @@ body::after {
     content : "";
     clip-path: polygon(0 0, 80% 0 , 50% 100% , 0 100%);
     //background-color: rgb(43, 71, 233);
-    background-color: couleur(primaire);
+    // background-color: couleur(primaire);
+    background-color: $couleur_background;
     position: absolute;
     width : 100%;
     height : 100%;
@@ -42,7 +43,7 @@ p {
 .bloc {
     border : 1px solid #666;
     background-color:transparent;
-    color :wheat;
+    color :rgb(110, 79, 22);
     font-size: 3rem;
     margin-left : 0;
     display : flex;
@@ -66,16 +67,16 @@ p {
     grid-template-columns: 1fr 1fr 1fr;
 
     grid-template-areas: 
-        "entete entete entete"
         "menu menu menu"
+        "entete entete entete"
         "annonce1 annonce1 annonce1"
         "principal principal principal"
         "pied-page pied-page pied-page";
         @include desktop    
         {
         grid-template-areas: 
-            "entete entete entete"
             "menu menu menu"
+            "entete entete entete"
             "principal annonce1 annonce1"
             "pied-page pied-page pied-page";
         }
@@ -84,16 +85,51 @@ p {
 .entete{
     grid-area: entete;
 
+    background-color: $couleur_desktop;
+    color: $couleur_text;
+    border-radius: 10px;
+    box-shadow: 7px 3px 11px 4px #757472;
+    padding: 42px;
+    margin: 20px;
+}
+
+.entete section
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.entete section div
+{
+    background-color: $couleur_background;
+    width: 50px;
+    margin: 0 10px;
+    text-align: center;
+    border-radius: 25px;
 }
 
 .menu{
     grid-area: menu;
 
+    background-color: $couleur_desktop;
+    color: $couleur_text;
+    border-radius: 10px;
+    box-shadow: 7px 3px 11px 4px #757472;
+    padding: 42px;
+    margin: 20px;
+
+    text-align: center;
 }
+
+h3:last-child
+{
+    text-align: end;
+}
+
 .annonce1{
     grid-area: annonce1;
-    background-color: #efebc5;
-    color: #5e6e81;
+    background-color: $couleur_desktop;
+    color: $couleur_text;
     border-radius: 10px;
     box-shadow: 7px 3px 11px 4px #757472;
     padding: 42px;
@@ -108,9 +144,10 @@ p {
 .annonce2{
     padding: 42px;
     margin: 20px;
-    background-color: #efebc5;
-    color: #1c2127;
+    background-color: $couleur_desktop;
+    color: $couleur_text;
     grid-area: annonce2;
+    
     section {
         display : flex;
         flex-wrap: wrap;
@@ -118,11 +155,30 @@ p {
     }
 
 }
-.principal{
+
+.principal
+{
     display : grid;
     place-items: center;
     grid-area: principal;
+
+    background-color: $couleur_desktop;
+    color: $couleur_text;
+    border-radius: 10px;
+    box-shadow: 7px 3px 11px 4px #757472;
+    padding: 42px;
+    margin: 20px;
 }
-.pied-page{
+
+.pied-page
+{
     grid-area: pied-page;
+
+    background-color: $couleur_desktop;
+    color: $couleur_text;
+    border-radius: 10px;
+    box-shadow: 7px 3px 11px 4px #757472;
+    padding: 42px;
+    margin: 20px;
+    text-align: center;
 }
